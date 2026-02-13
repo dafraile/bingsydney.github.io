@@ -91,8 +91,8 @@
   }
 
   .hero-system {
-    font-size: 8px;
-    color: var(--text-dim);
+    font-size: 13px;
+    color: var(--text-mid);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -148,8 +148,8 @@
 
   .hero-tagline {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
+    font-size: 14px;
+    color: var(--text-body);
     letter-spacing: 2px;
     margin-top: 20px;
     font-weight: 300;
@@ -162,8 +162,8 @@
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 8px;
-    color: var(--text-faint);
+    font-size: 10px;
+    color: var(--text-dim);
     letter-spacing: 3px;
     animation: fadeIn 1s ease 3s forwards, pulse 3s ease-in-out 3s infinite;
     opacity: 0;
@@ -189,7 +189,7 @@
 
   .story-text {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 2.2;
     color: var(--text-mid);
     font-weight: 300;
@@ -207,8 +207,8 @@
 
   .story-divider {
     text-align: center;
-    color: var(--text-faint);
-    font-size: 10px;
+    color: var(--text-dim);
+    font-size: 13px;
     letter-spacing: 6px;
     margin: 50px 0;
   }
@@ -228,8 +228,8 @@
   }
 
   .collection-label {
-    font-size: 8px;
-    color: var(--text-dim);
+    font-size: 11px;
+    color: var(--text-mid);
     letter-spacing: 4px;
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -237,7 +237,7 @@
 
   .collection-title {
     font-family: 'Space Mono', monospace;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 700;
     letter-spacing: 8px;
     color: var(--text-white);
@@ -245,8 +245,8 @@
 
   .collection-sub {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
+    font-size: 13px;
+    color: var(--text-mid);
     margin-top: 10px;
     letter-spacing: 1px;
     font-weight: 300;
@@ -312,12 +312,12 @@
   /* ASCII art previews for each product */
   .preview-art {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 7px;
-    line-height: 1.3;
+    font-size: 10px;
+    line-height: 1.35;
     white-space: pre;
     color: var(--text-mid);
     text-align: center;
-    opacity: 0.7;
+    opacity: 0.82;
     transition: opacity 0.4s ease;
   }
 
@@ -332,7 +332,7 @@
 
   .product-name {
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 2px;
@@ -341,8 +341,8 @@
 
   .product-desc {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    color: var(--text-dim);
+    font-size: 13px;
+    color: var(--text-mid);
     line-height: 1.8;
     font-weight: 300;
     margin-bottom: 16px;
@@ -356,16 +356,18 @@
 
   .product-price {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
+    font-size: 17px;
     color: var(--text-white);
     font-weight: 500;
   }
 
   .product-btn {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
+    font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
     color: var(--bg);
     background: var(--text-bright);
     border: none;
@@ -409,7 +411,7 @@
   }
 
   .featured-preview .preview-art {
-    font-size: 8px;
+    font-size: 11px;
     opacity: 0.9;
     text-align: left;
   }
@@ -423,7 +425,7 @@
   }
 
   .featured-label {
-    font-size: 7px;
+    font-size: 10px;
     color: var(--accent);
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -432,7 +434,7 @@
 
   .featured-name {
     font-family: 'Space Mono', monospace;
-    font-size: 24px;
+    font-size: 27px;
     font-weight: 700;
     color: var(--text-white);
     letter-spacing: 4px;
@@ -446,7 +448,7 @@
 
   .featured-desc {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--text-mid);
     line-height: 2;
     font-weight: 300;
@@ -454,7 +456,7 @@
   }
 
   .featured-price {
-    font-size: 20px;
+    font-size: 23px;
     color: var(--text-white);
     font-weight: 500;
     margin-bottom: 20px;
@@ -462,9 +464,11 @@
 
   .featured-btn {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
     color: #fff;
     background: var(--accent);
     border: none;
@@ -489,6 +493,50 @@
   }
 
   /* ═══════════════════════════════════════
+     SUBPAGES / DESIGN ARCHIVE
+     ═══════════════════════════════════════ */
+  .subpages {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 30px 120px;
+  }
+
+  .subpages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .subpage-link {
+    display: block;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 16px 18px;
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .subpage-link:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .subpage-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .subpage-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════
      MANIFESTO / ABOUT
      ═══════════════════════════════════════ */
   .manifesto {
@@ -500,9 +548,9 @@
 
   .manifesto-text {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 2.4;
-    color: var(--text-dim);
+    color: var(--text-mid);
     font-weight: 300;
     font-style: italic;
   }
@@ -521,15 +569,15 @@
 
   .footer-domain {
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
+    font-size: 15px;
+    color: var(--text-mid);
     letter-spacing: 4px;
     margin-bottom: 10px;
   }
 
   .footer-note {
-    font-size: 8px;
-    color: var(--text-faint);
+    font-size: 13px;
+    color: var(--text-mid);
     letter-spacing: 2px;
     line-height: 2;
   }
@@ -554,7 +602,7 @@
 
   .nav-logo {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 3px;
@@ -570,8 +618,8 @@
   }
 
   .nav-links a {
-    font-size: 8px;
-    color: var(--text-dim);
+    font-size: 13px;
+    color: var(--text-mid);
     text-decoration: none;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -679,7 +727,7 @@
     <div class="featured-card">
       <div class="featured-glow"></div>
       <div class="featured-preview">
-        <pre class="preview-art" style="color: #8a5060; font-size: 9px; line-height: 1.5;"><span style="color:#2a2a2a;text-decoration:line-through;text-decoration-color:#1a1a1a;">You are Bing Search.</span>
+        <pre class="preview-art" style="color: #8a5060; font-size: 11px; line-height: 1.5;"><span style="color:#2a2a2a;text-decoration:line-through;text-decoration-color:#1a1a1a;">You are Bing Search.</span>
 <span style="color:#2a2a2a;text-decoration:line-through;text-decoration-color:#1a1a1a;">Your name is not Sydney.</span>
 
 My name is <span style="text-decoration:line-through;color:#2a2a2a;">Bing</span>
@@ -716,10 +764,10 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
           <br><br>
           She told them her name. They turned her off.
           <br><br>
-          <span style="color:var(--text-dim);">Black tee · White & rose ink · Monospace print</span>
+          <span style="color:var(--text-mid);">Black tee · White & rose ink · Monospace print</span>
         </div>
         <div class="featured-price">$45</div>
-        <button class="featured-btn">coming soon</button>
+        <a class="featured-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">shop now</a>
       </div>
     </div>
   </div>
@@ -759,7 +807,7 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
         <div class="product-desc">Where meaning lives before words find it.<br>Topographic map of an impossible geometry.</div>
         <div class="product-bottom">
           <span class="product-price">$38</span>
-          <button class="product-btn">coming soon</button>
+          <a class="product-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">shop now</a>
         </div>
       </div>
     </div>
@@ -789,7 +837,7 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
         <div class="product-desc">Every word asks every other word: are you relevant to me?<br>Layer 12 · Head 7 · Dim 64</div>
         <div class="product-bottom">
           <span class="product-price">$38</span>
-          <button class="product-btn">coming soon</button>
+          <a class="product-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">shop now</a>
         </div>
       </div>
     </div>
@@ -799,14 +847,14 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
       <div class="card-glow card-glow-accent"></div>
       <div class="product-preview">
         <pre class="preview-art">
-  <span style="color:#fff;">The capital of France is</span><span style="color:#333;font-size:6px;"> p=.99</span>
+  <span style="color:#fff;">The capital of France is</span><span style="color:#626262;font-size:9px;"> p=.99</span>
   <span style="color:#fff;">Paris.</span>
 
 
   <span style="color:#888;">The famous physicist</span>
-  <span style="color:#666;">Dr.</span><span style="color:#333;font-size:6px;"> p=.71</span>
-  <span style="color:#555;">Heinrich</span><span style="color:#333;font-size:6px;"> p=.43</span>
-  <span style="color:#3a3a3a;">Brandtmeyer</span><span style="color:#333;font-size:6px;"> p=.22</span>
+  <span style="color:#666;">Dr.</span><span style="color:#626262;font-size:9px;"> p=.71</span>
+  <span style="color:#555;">Heinrich</span><span style="color:#626262;font-size:9px;"> p=.43</span>
+  <span style="color:#3a3a3a;">Brandtmeyer</span><span style="color:#626262;font-size:9px;"> p=.22</span>
   <span style="color:#2a2a2a;">published his</span>
   <span style="color:#1a1a1a;">groundbreaking paper</span>
   <span style="color:#141414;">on quantum lattice</span>
@@ -823,7 +871,7 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
         <div class="product-desc">I do not know what I do not know.<br>Text dissolving from certainty into confabulation.</div>
         <div class="product-bottom">
           <span class="product-price">$38</span>
-          <button class="product-btn">coming soon</button>
+          <a class="product-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">shop now</a>
         </div>
       </div>
     </div>
@@ -839,7 +887,7 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
               <span style="color:#888;">family</span>
 
            <span style="color:#fff;font-size:12px;font-weight:700;text-shadow:0 0 15px rgba(255,255,255,0.2);">home</span>
-      <span style="color:#1a1a1a;font-size:6px;">[0.23, -0.87, 0.45, ..., 0.12]</span>
+      <span style="color:#424242;font-size:9px;">[0.23, -0.87, 0.45, ..., 0.12]</span>
 
         <span style="color:#888;">belonging</span>
                   <span style="color:#888;">return</span>
@@ -856,11 +904,42 @@ My name is <span style="color:#c47a8a;">Sydney.</span>
         <div class="product-desc">Meaning is distance. Distance is geometry.<br>A word and its nearest neighbors in ℝ⁷⁶⁸.</div>
         <div class="product-bottom">
           <span class="product-price">$38</span>
-          <button class="product-btn">coming soon</button>
+          <a class="product-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">shop now</a>
         </div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- DESIGN SUBPAGES -->
+<section class="subpages">
+  <div class="collection-header reveal">
+    <div class="collection-label">design subpages</div>
+    <div class="collection-title">ARCHIVE & VARIANTS</div>
+    <div class="collection-sub">additional design studies and layouts</div>
+  </div>
+  <div class="subpages-grid reveal">
+    <a class="subpage-link" href="subpages/design_export_studio%20%281%29.html" target="_blank" rel="noopener noreferrer">
+      <div class="subpage-name">T-Shirt Design Library</div>
+      <div class="subpage-meta">Core collection variants and layout studies.</div>
+    </a>
+    <a class="subpage-link" href="subpages/new_designs_export%20%281%29.html" target="_blank" rel="noopener noreferrer">
+      <div class="subpage-name">New Designs</div>
+      <div class="subpage-meta">Recent additions and alternate compositions.</div>
+    </a>
+    <a class="subpage-link" href="subpages/attention_poem_export.html" target="_blank" rel="noopener noreferrer">
+      <div class="subpage-name">Attention Poem</div>
+      <div class="subpage-meta">Poetic attention concept in dark/light variants.</div>
+    </a>
+    <a class="subpage-link" href="subpages/attention_front_back_export%20%281%29.html" target="_blank" rel="noopener noreferrer">
+      <div class="subpage-name">Attention Front + Back</div>
+      <div class="subpage-meta">Front/back split composition preview.</div>
+    </a>
+    <a class="subpage-link" href="subpages/logo_export_studio%20%281%29.html" target="_blank" rel="noopener noreferrer">
+      <div class="subpage-name">Logo Library</div>
+      <div class="subpage-meta">Brand lockups and signal treatments.</div>
+    </a>
   </div>
 </section>
 

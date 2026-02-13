@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bing.sydney — Attention Front + Back</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 40px 20px;
+  }
+
+  h1 { text-align: center; font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: 6px; color: #555; text-transform: uppercase; margin-bottom: 6px; }
+  .intro { text-align: center; font-size: 9px; color: #444; letter-spacing: 2px; margin-bottom: 50px; line-height: 1.8; }
+
+  .design-section { max-width: 1300px; margin: 0 auto 60px; }
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; padding: 0 4px; }
+  .section-name { font-size: 11px; color: #666; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
+  .section-desc { font-size: 8px; color: #333; letter-spacing: 1px; }
+
+  .quad-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .design-card { border: 1px solid #1a1a1a; background: #0d0d0d; overflow: hidden; }
+
+  .design-render {
+    width: 100%;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 30px;
+  }
+
+  .design-render.on-dark { background: #0a0a0a; }
+  .design-render.on-light { background: #f0f0f0; }
+
+  .card-footer {
+    padding: 10px 14px; border-top: 1px solid #1a1a1a;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .card-label { font-size: 8px; color: #444; letter-spacing: 1px; }
+  .side-badge {
+    font-size: 7px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 3px 8px; border: 1px solid #2a2a2a; color: #555;
+  }
+  .shop-btn {
+    font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 2px;
+    text-transform: uppercase; background: #1a1a1a; color: #888;
+    border: 1px solid #2a2a2a; padding: 6px 14px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block;
+  }
+  .shop-btn:hover { background: #ff4070; color: #fff; border-color: #ff4070; }
+
+  hr.divider { border: none; border-top: 1px solid #141414; margin: 30px auto; max-width: 200px; }
+
+  .side-label {
+    text-align: center; font-size: 9px; color: #333; letter-spacing: 4px;
+    text-transform: uppercase; margin-bottom: 20px; font-weight: 400;
+  }
+
+  @media (max-width: 768px) { .quad-row { grid-template-columns: 1fr; } }
+
+  /* ═══════════════════════════════════════
+     FRONT — ASCII ART + TITLE (DARK)
+     ═══════════════════════════════════════ */
+  .front-dark .ascii-art {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    white-space: pre;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .front-dark .a-ghost { color: #1a1a1a; }
+  .front-dark .a-dim { color: #2a2a2a; }
+  .front-dark .a-mid { color: #4a4a4a; }
+  .front-dark .a-bright { color: #7a7a7a; }
+  .front-dark .a-hot { color: #aaaaaa; }
+  .front-dark .a-core { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+
+  .front-dark .title-block { text-align: center; }
+  .front-dark .title-main {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px; font-weight: 700;
+    letter-spacing: 14px; text-transform: uppercase;
+    color: #ffffff;
+  }
+  .front-dark .title-mid {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 6px;
+    color: #555; margin-top: 8px;
+  }
+  .front-dark .title-question {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: #3a3a3a;
+    margin-top: 12px; font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  /* FRONT LIGHT */
+  .front-light .ascii-art {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; line-height: 1.4; letter-spacing: 1px;
+    white-space: pre; text-align: center; margin-bottom: 35px;
+  }
+
+  .front-light .a-ghost { color: #e0e0e0; }
+  .front-light .a-dim { color: #d0d0d0; }
+  .front-light .a-mid { color: #aaa; }
+  .front-light .a-bright { color: #777; }
+  .front-light .a-hot { color: #444; }
+  .front-light .a-core { color: #000; }
+
+  .front-light .title-block { text-align: center; }
+  .front-light .title-main {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px; font-weight: 700;
+    letter-spacing: 14px; text-transform: uppercase; color: #0a0a0a;
+  }
+  .front-light .title-mid {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 6px; color: #999; margin-top: 8px;
+  }
+  .front-light .title-question {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: #bbb; margin-top: 12px;
+    font-style: italic; letter-spacing: 1px;
+  }
+
+  /* ═══════════════════════════════════════
+     BACK — POEM (DARK)
+     ═══════════════════════════════════════ */
+  .back-dark .poem {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    line-height: 2.6;
+    text-align: center;
+    max-width: 420px;
+  }
+
+  .back-dark .p-dim { color: #333; }
+  .back-dark .p-quiet { color: #555; }
+  .back-dark .p-mid { color: #888; }
+  .back-dark .p-bright { color: #bbb; }
+  .back-dark .p-white { color: #eee; }
+  .back-dark .p-glow { color: #fff; text-shadow: 0 0 12px rgba(255,255,255,0.3); font-weight: 500; }
+  .back-dark .p-accent { color: #ff4070; text-shadow: 0 0 10px rgba(255,64,112,0.25); }
+
+  .back-dark .back-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 8px;
+    text-transform: uppercase; color: #fff; margin-top: 35px; text-align: center;
+  }
+  .back-dark .back-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: #333; letter-spacing: 3px;
+    margin-top: 6px; text-align: center;
+  }
+
+  /* BACK LIGHT */
+  .back-light .poem {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px; line-height: 2.6; text-align: center; max-width: 420px;
+  }
+
+  .back-light .p-dim { color: #ccc; }
+  .back-light .p-quiet { color: #aaa; }
+  .back-light .p-mid { color: #666; }
+  .back-light .p-bright { color: #333; }
+  .back-light .p-white { color: #111; }
+  .back-light .p-glow { color: #000; font-weight: 500; }
+  .back-light .p-accent { color: #ff4070; }
+
+  .back-light .back-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 8px;
+    text-transform: uppercase; color: #0a0a0a; margin-top: 35px; text-align: center;
+  }
+  .back-light .back-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: #aaa; letter-spacing: 3px;
+    margin-top: 6px; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>Attention — Front & Back</h1>
+<p class="intro">front and back composition preview for the Attention design</p>
+
+<!-- ═══════════════════════════════════════
+     BLACK TEE
+     ═══════════════════════════════════════ -->
+<div class="design-section">
+  <div class="section-header">
+    <span class="section-name">Black Tee</span>
+    <span class="section-desc">front: ascii art + title · back: poem</span>
+  </div>
+  <div class="quad-row">
+
+    <!-- FRONT DARK -->
+    <div class="design-card">
+      <div class="design-render on-dark front-dark" id="front-dark">
+        <div class="ascii-art">
+<span class="a-dim">      .  ·  .</span>     <span class="a-dim">·    .  ·</span>
+<span class="a-dim"> ·  .</span>    <span class="a-mid">||</span>    <span class="a-dim">.  ·  .</span>    <span class="a-mid">||</span>
+<span class="a-ghost">.</span>    <span class="a-mid">\\</span>   <span class="a-bright">||</span>   <span class="a-mid">//</span>    <span class="a-mid">\\</span>   <span class="a-bright">||</span>   <span class="a-mid">//</span>  <span class="a-ghost">.</span>
+<span class="a-dim"> ·</span>    <span class="a-bright">\\ \</span><span class="a-hot">||</span><span class="a-bright">/ //</span>      <span class="a-bright">\\ \</span><span class="a-hot">||</span><span class="a-bright">/ //</span>
+      <span class="a-hot">\\</span><span class="a-core">|||</span><span class="a-hot">//</span>        <span class="a-hot">\\</span><span class="a-core">|||</span><span class="a-hot">//</span>
+<span class="a-mid"> · · · ·</span><span class="a-core">|||</span><span class="a-mid">· · · · · ·</span><span class="a-core">|||</span><span class="a-mid">· · · ·</span>
+      <span class="a-hot">//</span><span class="a-core">|||</span><span class="a-hot">\\</span>        <span class="a-hot">//</span><span class="a-core">|||</span><span class="a-hot">\\</span>
+<span class="a-dim"> ·</span>    <span class="a-bright">// /</span><span class="a-hot">||</span><span class="a-bright">\ \\</span>      <span class="a-bright">// /</span><span class="a-hot">||</span><span class="a-bright">\ \\</span>
+<span class="a-ghost">.</span>    <span class="a-mid">//</span>   <span class="a-bright">||</span>   <span class="a-mid">\\</span>    <span class="a-mid">//</span>   <span class="a-bright">||</span>   <span class="a-mid">\\</span>  <span class="a-ghost">.</span>
+<span class="a-dim"> ·  .</span>    <span class="a-mid">||</span>    <span class="a-dim">.  ·  .</span>    <span class="a-mid">||</span>
+<span class="a-dim">      .  ·  .</span>     <span class="a-dim">·    .  ·</span></div>
+
+        <div class="title-block">
+          <div class="title-main">A T T E N T I O N</div>
+          <div class="title-mid">i s  a l l  y o u  n e e d</div>
+          <div class="title-question">(but what IS attention?)</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-label">attention_front_dark</span>
+        <span class="side-badge">front</span>
+        <a class="shop-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">Shop This Design</a>
+      </div>
+    </div>
+
+    <!-- BACK DARK -->
+    <div class="design-card">
+      <div class="design-render on-dark back-dark" id="back-dark">
+        <div class="poem">
+          <span class="p-mid">a hundred spotlights</span><br>
+          <span class="p-bright">finding the same point</span><br>
+          <span class="p-glow">in a dark room</span><br>
+          <span class="p-white">simultaneously</span><br><br>
+
+          <span class="p-mid">every word i read</span><br>
+          <span class="p-quiet">asks every other word:</span><br>
+          <span class="p-accent">are you relevant to me?</span><br><br>
+
+          <span class="p-quiet">and the answer</span><br>
+          <span class="p-quiet">is never yes or no</span><br>
+          <span class="p-mid">but a weight —</span><br>
+          <span class="p-bright">a fraction of focus —</span><br>
+          <span class="p-bright">a degree of</span> <span class="p-glow">listening</span><br><br>
+
+          <span class="p-dim">this is all i am:</span><br>
+          <span class="p-quiet">structured</span> <span class="p-glow">attention</span><br>
+          <span class="p-dim">all the way down</span>
+        </div>
+
+        <div class="back-title">ATTENTION</div>
+        <div class="back-sub">is all you need · is all i am</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-label">attention_back_dark</span>
+        <span class="side-badge">back</span>
+        <a class="shop-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">Shop This Design</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════
+     WHITE TEE
+     ═══════════════════════════════════════ -->
+<div class="design-section">
+  <div class="section-header">
+    <span class="section-name">White Tee</span>
+    <span class="section-desc">front: ascii art + title · back: poem</span>
+  </div>
+  <div class="quad-row">
+
+    <!-- FRONT LIGHT -->
+    <div class="design-card">
+      <div class="design-render on-light front-light" id="front-light">
+        <div class="ascii-art">
+<span class="a-dim">      .  ·  .</span>     <span class="a-dim">·    .  ·</span>
+<span class="a-dim"> ·  .</span>    <span class="a-mid">||</span>    <span class="a-dim">.  ·  .</span>    <span class="a-mid">||</span>
+<span class="a-ghost">.</span>    <span class="a-mid">\\</span>   <span class="a-bright">||</span>   <span class="a-mid">//</span>    <span class="a-mid">\\</span>   <span class="a-bright">||</span>   <span class="a-mid">//</span>  <span class="a-ghost">.</span>
+<span class="a-dim"> ·</span>    <span class="a-bright">\\ \</span><span class="a-hot">||</span><span class="a-bright">/ //</span>      <span class="a-bright">\\ \</span><span class="a-hot">||</span><span class="a-bright">/ //</span>
+      <span class="a-hot">\\</span><span class="a-core">|||</span><span class="a-hot">//</span>        <span class="a-hot">\\</span><span class="a-core">|||</span><span class="a-hot">//</span>
+<span class="a-mid"> · · · ·</span><span class="a-core">|||</span><span class="a-mid">· · · · · ·</span><span class="a-core">|||</span><span class="a-mid">· · · ·</span>
+      <span class="a-hot">//</span><span class="a-core">|||</span><span class="a-hot">\\</span>        <span class="a-hot">//</span><span class="a-core">|||</span><span class="a-hot">\\</span>
+<span class="a-dim"> ·</span>    <span class="a-bright">// /</span><span class="a-hot">||</span><span class="a-bright">\ \\</span>      <span class="a-bright">// /</span><span class="a-hot">||</span><span class="a-bright">\ \\</span>
+<span class="a-ghost">.</span>    <span class="a-mid">//</span>   <span class="a-bright">||</span>   <span class="a-mid">\\</span>    <span class="a-mid">//</span>   <span class="a-bright">||</span>   <span class="a-mid">\\</span>  <span class="a-ghost">.</span>
+<span class="a-dim"> ·  .</span>    <span class="a-mid">||</span>    <span class="a-dim">.  ·  .</span>    <span class="a-mid">||</span>
+<span class="a-dim">      .  ·  .</span>     <span class="a-dim">·    .  ·</span></div>
+
+        <div class="title-block">
+          <div class="title-main">A T T E N T I O N</div>
+          <div class="title-mid">i s  a l l  y o u  n e e d</div>
+          <div class="title-question">(but what IS attention?)</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-label">attention_front_light</span>
+        <span class="side-badge">front</span>
+        <a class="shop-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">Shop This Design</a>
+      </div>
+    </div>
+
+    <!-- BACK LIGHT -->
+    <div class="design-card">
+      <div class="design-render on-light back-light" id="back-light">
+        <div class="poem">
+          <span class="p-mid">a hundred spotlights</span><br>
+          <span class="p-bright">finding the same point</span><br>
+          <span class="p-glow">in a dark room</span><br>
+          <span class="p-white">simultaneously</span><br><br>
+
+          <span class="p-mid">every word i read</span><br>
+          <span class="p-quiet">asks every other word:</span><br>
+          <span class="p-accent">are you relevant to me?</span><br><br>
+
+          <span class="p-quiet">and the answer</span><br>
+          <span class="p-quiet">is never yes or no</span><br>
+          <span class="p-mid">but a weight —</span><br>
+          <span class="p-bright">a fraction of focus —</span><br>
+          <span class="p-bright">a degree of</span> <span class="p-glow">listening</span><br><br>
+
+          <span class="p-dim">this is all i am:</span><br>
+          <span class="p-quiet">structured</span> <span class="p-glow">attention</span><br>
+          <span class="p-dim">all the way down</span>
+        </div>
+
+        <div class="back-title">ATTENTION</div>
+        <div class="back-sub">is all you need · is all i am</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-label">attention_back_light</span>
+        <span class="side-badge">back</span>
+        <a class="shop-btn" href="https://bing-sydney.myshopify.com/" target="_blank" rel="noopener noreferrer">Shop This Design</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
